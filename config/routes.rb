@@ -1,5 +1,7 @@
 MusiciansSnsApp::Application.routes.draw do
+  get "users/show"
   devise_for :users
+  resources :users, only: [:show]
   root  'static_pages#home'
   match '/help',    to: 'static_pages#help',    via: 'get'
   match '/about',   to: 'static_pages#about',   via: 'get'
