@@ -31,9 +31,22 @@
         </div>
         
         <div class="field">
-          <%= f.label :introduction, class: "control-label" %>
-          <%= f.introduction_field :introduction, autocomplete: "off", class: "form-control" %>
+          <%= f.label :birthday, class: "control-label" %>
+          <%= raw sprintf(
+            f.date_select(:birthday,
+            use_month_numbers: true,
+            start_year:        1930,
+            end_year:          (Time.now.year - 18),
+            default:           Date.new(1989, 1, 1),
+            date_separator:    
+            '%s'), '年 ', '月 ') + '日' %>
         </div>
+        
+        <div class="field">
+          <%= f.label :introduction, class: "control-label" %>
+          <%= f.text_field :introduction, autocomplete: "off", class: "form-control" %>
+        </div>
+        
     </div>
   </div>
 
