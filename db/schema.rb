@@ -28,7 +28,7 @@ ActiveRecord::Schema.define(version: 20180118123017) do
     t.datetime "updated_at"
     t.string   "name"
     t.string   "introduction"
-    t.integer  "birthday"
+    t.date     "birthday"
     t.integer  "address"
   end
 

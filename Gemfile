@@ -5,6 +5,8 @@ gem 'rails', '4.0.5'
 gem 'bootstrap-sass', '3.3.1'
 gem 'sprockets', '2.11.0'
 gem 'devise', '3.4.1'
+gem 'jp_prefecture'
+gem 'jquery-ui-rails'
 
 group :development do
   gem 'sqlite3', '1.3.9'
