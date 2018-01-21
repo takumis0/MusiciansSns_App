@@ -32,9 +32,22 @@
         
         
         
-        <%= f.text_field :birthday, class: 'date-picker' %>
+        <div class="field", style="display:inline-flex;">
+          <%= f.label :birthday, class: "control-label" %>
+          <%= raw sprintf(
+            f.date_select(:birthday,
+            use_month_numbers: true,
+            start_year:        1930,
+            end_year:          (Time.now.year),
+            default:           Date.new(2000, 1, 1),
+            date_separator:    
+            '%s'), '年 ', '月 ') + '日' %>
+        </div>
+        
+        
         
         <div class ="field">
+          <%= f.label :address, class: "control-label" %>
           <%= f.collection_select :address, JpPrefecture::Prefecture.all, :name, :name %>
         </div>
         
