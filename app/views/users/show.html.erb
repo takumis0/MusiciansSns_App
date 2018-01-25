@@ -6,6 +6,11 @@
         <%= gravatar_for @user %>
         <%= @user.name %>
       </h1>
+      <p>
+        Birthday : <%= @user.birthday.strftime("%Y年%m月%d日") %> </br>
+        Address : <%= @user.pref.name %> </br>
+        Introduction</br><%= @user.introduction %> </br>
+      </p>
     </section>
   </aside>
 </div>

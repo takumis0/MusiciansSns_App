@@ -30,8 +30,6 @@
           <%= f.password_field :password_confirmation, autocomplete: "off", class: "form-control" %>
         </div>
         
-        
-        
         <div class="field", style="display:inline-flex;">
           <%= f.label :birthday, class: "control-label" %>
           <%= raw sprintf(
@@ -44,11 +42,9 @@
             '%s'), '年 ', '月 ') + '日' %>
         </div>
         
-        
-        
         <div class ="field">
-          <%= f.label :address, class: "control-label" %>
-          <%= f.collection_select :address, JpPrefecture::Prefecture.all, :name, :name %>
+          <%= f.label :prefecture_code, class: "control-label" %>
+          <%= f.collection_select :prefecture_code, JpPrefecture::Prefecture.all, :code, :name %>
         </div>
         
         <div class="field">

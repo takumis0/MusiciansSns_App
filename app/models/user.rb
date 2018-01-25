@@ -9,5 +9,5 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
          
   include JpPrefecture
-  jp_prefecture :prefecture_code
+  jp_prefecture :prefecture_code, method_name: :pref
 end

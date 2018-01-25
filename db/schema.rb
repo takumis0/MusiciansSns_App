@@ -29,7 +29,7 @@ ActiveRecord::Schema.define(version: 20180118123017) do
     t.string   "name"
     t.string   "introduction"
     t.date     "birthday"
-    t.integer  "address"
+    t.integer  "prefecture_code"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
