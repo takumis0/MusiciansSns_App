@@ -7,6 +7,8 @@ gem 'sprockets', '2.11.0'
 gem 'devise', '3.4.1'
 gem 'jp_prefecture'
 gem 'jquery-ui-rails'
+gem 'carrierwave'
+gem 'mini_magick'
 
 group :development do
   gem 'sqlite3', '1.3.9'

@@ -54,8 +54,14 @@
         </div>
         
         <div class="field">
+          <%= f.label :avatar, class: "control-label" %>
+          <%= f.file_field :avatar %>
+          <%= f.hidden_field :avatar_cache %>
+        </div>
+        
+        <div class="field">
           <%= f.label :introduction, autofocus: true, class: "control-label" %>
-          <%= f.text_field :introduction, autocomplete: "off", class: "form-control" %>
+          <%= f.text_area :introduction, autocomplete: "off", class: "form-control", :rows=>"20" %>
         </div>
         
     </div>

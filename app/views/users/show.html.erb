@@ -1,16 +1,21 @@
 <% provide(:title, @user.name) %>
 <div class="row">
-  <aside class="col-md-4">
+  <aside class="col-md-10">
     <section>
       <h1>
         <%= gravatar_for @user %>
+        <%= image_tag @user.avatar, class: "col-med-1" %>
         <%= @user.name %>
       </h1>
+      
       <p>
         Birthday : <%= @user.birthday.strftime("%Y年%m月%d日") %> </br>
         Address : <%= @user.pref.name %> </br>
-        Introduction</br><%= @user.introduction %> </br>
-      </p>
+        </p>
+        <div class = "jumbotron" style = "margin-left:90px">
+          <h1><small>Introduction</small></h1>
+          <p><small><%= @user.introduction %></small></p>
+        </div>
     </section>
   </aside>
 </div>
