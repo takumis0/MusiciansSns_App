@@ -183,20 +183,18 @@ input {
 
 .users {
   list-style: none;
-  margin: 0;
+  margin: 10px 0 10px 0;
   li {
     overflow: auto;
     padding: 10px 0;
     border-top: 1px solid $gray-lighter;
-    background:green;
+    height:128px;
+    vertical-align:middle;
     &:last-child {
       border-bottom: 1px solid $gray-lighter;
     }
-  }
-}
-
-.users_class{/*これ効いてない*/
-  img {
-    width:190px !important;
+    img{
+      width:90px;
+    }
   }
 }

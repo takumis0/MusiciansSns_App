@@ -1,3 +1,21 @@
+<% if signed_in? %>
+
+<div class="center jumbotron">
+  <h1>Home Musicians Sns App</h1>
+
+  <h2>
+    This is the home page for the
+    <a href="http://railstutorial.org/">Ruby on Rails Tutorial</a>
+    sample application.
+  </h2>
+
+  <%= link_to "Sign out now", destroy_user_session_path, method: "delete", class: "btn btn-lg btn-primary" %>
+</div>
+
+<%= link_to image_tag("roughlyIcon.png", alt: "Rails"), 'http://rubyonrails.org/' %>
+
+<% else %>
+
 <div class="center jumbotron">
   <h1>Welcome to Musicians Sns App</h1>
 
@@ -11,3 +29,5 @@
 </div>
 
 <%= link_to image_tag("roughlyIcon.png", alt: "Rails"), 'http://rubyonrails.org/' %>
+
+<% end %>
