@@ -4,6 +4,7 @@ MusiciansSnsApp::Application.routes.draw do
     :registrations => "registrations"
   }
   resources :users, only: [:show, :index]
+  resources :favorites, only: [:create, :destroy]
   root  'static_pages#home'
   match '/help',    to: 'static_pages#help',    via: 'get'
   match '/about',   to: 'static_pages#about',   via: 'get'

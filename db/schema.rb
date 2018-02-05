@@ -37,7 +37,7 @@ ActiveRecord::Schema.define(version: 20180204002730) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "name"
-    t.string   "introduction"
+    t.text     "introduction"
     t.date     "birthday"
     t.integer  "prefecture_code"
     t.string   "avatar"

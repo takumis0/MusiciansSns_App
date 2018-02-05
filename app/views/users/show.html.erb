@@ -18,4 +18,15 @@
         </div>
     </section>
   </aside>
+  <% if @user == current_user %>
+  <%= render 'shared/favorite_form' %>
+  <% end %>
+  <div class="col-md-8">
+    <% if @user.favorites.any? %>
+      <h3>Favorites (<%= @user.favorites.count %>)</h3>
+      <table class="table" id="my_favorites">
+        <%= render @favorites %>
+      </table>
+    <% end %>
+  </div>
 </div>

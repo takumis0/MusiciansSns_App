@@ -7,5 +7,7 @@ class UsersController < ApplicationController
   
   def show
     @user = User.find(params[:id])
+    @favorites = @user.favorites
+    @favorite = @favorites.build if signed_in?
   end
 end
