@@ -9,6 +9,5 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @favorites = @user.favorites
     @favorite = @favorites.build if signed_in?
-    
   end
 end

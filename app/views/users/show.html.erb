@@ -19,11 +19,10 @@
     </section>
   </aside>
   
+  <% if @user == current_user %>
   <div class="col-md-8">
   <%= render 'favorites/searchForm' %>
   </div>
-  
-  <% if @user == current_user %>
   <%= render 'shared/favorite_form' %>
   <% end %>
   

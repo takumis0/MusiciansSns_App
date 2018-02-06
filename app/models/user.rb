@@ -14,10 +14,10 @@ class User < ActiveRecord::Base
   jp_prefecture :prefecture_code, method_name: :pref
   
   def self.search(search) #self.でクラスメソッドとしている
-    if search # Controllerから渡されたパラメータが!= nilの場合は、titleカラムを部分一致検索
-      #User.where(['name LIKE ?', "%#{search}%"])
+    if search != nil # Controllerから渡されたパラメータが!= nilの場合は、titleカラムを部分一致検索
+      User.where(['name LIKE ?', "%#{search}%"])
       #User.joins(:favorites).where("favorite.artist like '%#{params[:search]}'").uniq
-      User.joins(:favorites).where(['favorites.artist LIKE ?', "%#{search}%"])
+      #User.joins(:favorites).where(['favorites.artist LIKE ?', "%#{search}%"]).uniq
     else
       User.all #全て表示。
     end
