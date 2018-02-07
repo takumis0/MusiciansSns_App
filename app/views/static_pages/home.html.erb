@@ -1,10 +1,11 @@
 <%= render 'shared/search_user_form' %>
 <% if signed_in? %>
-<div class="center jumbotron">
-  <h2>Home</h2>
-  <%= link_to "Sign out now", destroy_user_session_path, method: "delete", class: "btn btn-lg btn-primary" %>
+<div class="col-xs-10">
+  <div class="center jumbotron">
+    <h2>Home</h2>
+    <%= link_to "Sign out now", destroy_user_session_path, method: "delete", class: "btn btn-lg btn-primary" %>
+  </div>
 </div>
-
 <% else %>
 <div class="center jumbotron">
   <h1>Welcome to Musicians Sns App</h1>

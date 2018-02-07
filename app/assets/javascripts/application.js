@@ -14,6 +14,7 @@
 //= require jquery_ujs
 //= require jquery-ui/widgets/datepicker
 //= require jquery-ui/i18n/datepicker-ja
+//= require jquery.turbolinks
 //= require bootstrap
 //= require turbolinks
 //= require_tree .

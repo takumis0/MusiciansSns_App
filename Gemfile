@@ -12,6 +12,7 @@ gem 'jp_prefecture'
 gem 'jquery-ui-rails'
 gem 'carrierwave'
 gem 'mini_magick'
+gem 'jquery-turbolinks'
 
 group :development do
   gem 'sqlite3', '1.3.9'
