@@ -15,9 +15,10 @@ class User < ActiveRecord::Base
   
   def self.search(search) #self.でクラスメソッドとしている
     if search != nil # Controllerから渡されたパラメータが!= nilの場合は、titleカラムを部分一致検索
-      User.where(['name LIKE ?', "%#{search}%"])
+      #User.where(['name LIKE ?', "%#{search}%"])
       #User.joins(:favorites).where("favorite.artist like '%#{params[:search]}'").uniq
       #User.joins(:favorites).where(['favorites.artist LIKE ?', "%#{search}%"]).uniq
+      User.joins(:favorites).where(['favorites.song LIKE ?', "%#{search}%"]).uniq
     else
       User.all #全て表示。
     end
