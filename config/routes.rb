@@ -1,9 +1,10 @@
 MusiciansSnsApp::Application.routes.draw do
   get "users/show"
+  get 'users/autocomplete_user/:term' => 'users#autocomplete_user'
   devise_for :users, :controllers => {
     :registrations => "registrations"
   }
-  resources :users, only: [:show, :index]
+  resources :users
   resources :favorites, only: [:create, :destroy]
   
   root  'static_pages#home'

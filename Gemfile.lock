@@ -139,6 +139,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  arel
   bootstrap-sass (= 3.3.1)
   carrierwave
   coffee-rails (= 4.0.1)
