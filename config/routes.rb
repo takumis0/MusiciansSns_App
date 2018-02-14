@@ -1,6 +1,6 @@
 MusiciansSnsApp::Application.routes.draw do
   get "users/show"
-  get 'users/autocomplete_user/:term' => 'users#autocomplete_user'
+  get 'users/autocomplete_user/data' => 'users#autocomplete_user'
   devise_for :users, :controllers => {
     :registrations => "registrations"
   }

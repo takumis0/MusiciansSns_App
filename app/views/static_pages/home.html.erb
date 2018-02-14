@@ -1,19 +1,23 @@
-<%= render 'shared/search_user_form' %>
+<%= render 'shared/autocomp_search_form' %>
 <% if signed_in? %>
-<div class="col-xs-10">
-  <div class="center jumbotron">
-    <h2>Home</h2>
-    <%= link_to "Sign out now", destroy_user_session_path, method: "delete", class: "btn btn-lg btn-primary" %>
+<div class="container">
+  <div class="col-xs-10">
+    <div class="center jumbotron">
+      <h2>Home</h2>
+      <%= link_to "Sign out now", destroy_user_session_path, method: "delete", class: "btn btn-lg btn-primary" %>
+    </div>
   </div>
 </div>
 <% else %>
-<div class="center jumbotron">
-  <h1>Welcome to Musicians Sns App</h1>
-  <h2>
-    This is the home page for the
-    <a href="http://railstutorial.org/">Ruby on Rails Tutorial</a>
-    sample application.
-  </h2>
-  <%= link_to "Sign up now!", new_user_registration_path, class: "btn btn-lg btn-primary" %>
+<div class="container">
+  <div class="center jumbotron">
+    <h1>Welcome to Musicians Sns App</h1>
+    <h2>
+      This is the home page for the
+      <a href="http://railstutorial.org/">Ruby on Rails Tutorial</a>
+      sample application.
+    </h2>
+    <%= link_to "Sign up now!", new_user_registration_path, class: "btn btn-lg btn-primary" %>
+  </div>
 </div>
 <% end %>

@@ -1,6 +1,6 @@
 <% provide(:title, @user.name) %>
 <div class="row">
-  <aside class="col-md-10">
+  <aside class="col-md-10 col-md-offset-1">
     <section>
       <h1>
         
@@ -12,7 +12,7 @@
         Birthday : <%= @user.birthday.strftime("%Y年%m月%d日") %> </br>
         Address : <%= @user.pref.name %> </br>
         </p>
-        <div class = "jumbotron" style = "margin-left:90px">
+        <div class = "jumbotron">
           <h1><small>Introduction</small></h1>
           <p><small><%= @user.introduction %></small></p>
         </div>
@@ -20,13 +20,13 @@
   </aside>
   
   <% if @user == current_user %>
-  <div class="col-md-8">
+  <div class="col-md-8 col-md-offset-2">
   <%= render 'favorites/searchForm' %>
   </div>
   <%= render 'shared/favorite_form' %>
   <% end %>
   
-  <div class="col-md-8">
+  <div class="col-md-8 col-md-offset-2">
     <% if @user.favorites.any? %>
       <h3>Favorites (<%= @user.favorites.count %>)</h3>
       <table class="table" id="my_favorites">

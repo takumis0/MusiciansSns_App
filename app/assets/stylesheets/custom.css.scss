@@ -1,4 +1,5 @@
 @import "bootstrap";
+@import "bootstrap-sprockets";
 
 /* mixins, variables, etc. */
 
@@ -150,7 +151,7 @@ aside {
 
 /* forms */
 
-input, textarea, select, .uneditable-input {
+input, textarea, .uneditable-input {
   border: 1px solid #bbb;
   width: 100%;
   padding: 10px;
@@ -158,10 +159,6 @@ input, textarea, select, .uneditable-input {
   margin-left: 8px !important;
   margin-right: 8px !important;
   @include box_sizing;
-}
-
-input {
-  height: auto !important;
 }
 
 #error_explanation {
@@ -176,6 +173,29 @@ input {
   @extend .form-group;
   @extend .has-error;
   margin-bottom: 0;
+}
+
+.form-control{
+  height: 40px;
+  input{
+    font-size:18px;
+    padding: 11px;
+    width: 30px;
+  }
+  select{
+  }
+}
+
+.search-box{
+  border-radius: 8px;
+  border-width: 0;
+  background-color: hsla(0, 0%, 100%, .8);
+  padding: 5px;
+  margin-bottom: 25px;
+}
+
+.form-group{
+  display: inline-block;
 }
 
 

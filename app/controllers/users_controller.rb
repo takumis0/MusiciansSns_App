@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :authenticate_user!, :except=>[:show]
+  #before_action :authenticate_user!, :except=>[:show]
   
   def index
     @users = User.search(params[:search]).paginate(page: params[:page])
@@ -11,12 +11,20 @@ class UsersController < ApplicationController
     @favorite = @favorites.build if signed_in?
   end
   
-  
-  def autocomplete_user
-    #それぞれならオートコンプリート出来る。
-    #user_names = User.autocomplete(params[:term]).pluck(:name)
-    #user_names = User.joins(:favorites).uniq.autocomplete(params[:term]).pluck(:artist)
-    user_names = User.joins(:favorites).uniq.autocomplete(params[:term]).pluck(:song)
+  def autocomplete_user()
+    #オートコンプリートの候補表示部分、
+    user_names =  User.autocomplete(params[:term]).pluck(:name) #いらないかも
+    
+    case params[:options]
+    when "artistTerm"
+      user_names = User.joins(:favorites).autocomplete_artist(params[:term]).pluck(:artist)
+    when "songTerm"
+      user_names = User.joins(:favorites).autocomplete_song(params[:term]).pluck(:song)
+    else
+      user_names += User.joins(:favorites).autocomplete_artist(params[:term]).pluck(:artist)
+      user_names += User.joins(:favorites).autocomplete_song(params[:term]).pluck(:song)
+    end
+    
     respond_to do |format|
       format.html
       format.json {
@@ -24,5 +32,4 @@ class UsersController < ApplicationController
       }
     end
   end
-  
 end

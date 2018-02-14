@@ -14,15 +14,22 @@ class User < ActiveRecord::Base
   include JpPrefecture
   jp_prefecture :prefecture_code, method_name: :pref
   
-  scope :autocomplete, ->(term) {
-    #where("name LIKE ?", "#{term}%").order(:name)
-    joins(:favorites).where('name LIKE ? OR favorites.song LIKE ? OR favorites.artist LIKE ?', "#{term}%","#{term}%","#{term}%").uniq
+  #autocomplete表示部で使う、スコープ
+  scope :autocomplete, ->(term){
+    where('name LIKE ?', "#{term}%")
+  }
+  scope :autocomplete_song, ->(term) {
+    joins(:favorites).where('favorites.song LIKE ?',"#{term}%").uniq
+  }
+  scope :autocomplete_artist, ->(term) {
+    joins(:favorites).where('favorites.artist LIKE ?',"#{term}%").uniq
   }
   
   def self.search(search) #self.でクラスメソッドとしている
     if search != nil # Controllerから渡されたパラメータが!= nilの場合は、titleカラムを部分一致検索
-      
-      User.joins(:favorites).where(['name LIKE ? OR favorites.song LIKE ? OR favorites.artist LIKE ?', "%#{search}%","%#{search}%","%#{search}%"]).uniq
+      #ユーザー名、曲名、歌手名を全て、変数searchでそれぞれ検索出来る。
+      User.joins(:favorites).where(['name LIKE ? OR favorites.song LIKE ? OR favorites.artist LIKE ?',
+      "%#{search}%","%#{search}%","%#{search}%"]).uniq
     else
       User.all #全て表示。
     end
