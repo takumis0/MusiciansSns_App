@@ -16,7 +16,7 @@ html {
 }
 
 body {
-  padding-top: 60px;
+  padding-top: 100px;
 }
 
 section {
@@ -25,6 +25,10 @@ section {
 
 textarea {
   resize: vertical;
+}
+
+ul{ /* ヘッダーのautocompleteのulが隠れるため追加。Bootstrapのheaderのz-index = 1030 */
+  z-index: 1031 !important;
 }
 
 .center {
@@ -176,7 +180,7 @@ input, textarea, .uneditable-input {
 }
 
 .form-control{
-  height: 40px;
+  height: 42px;
   input{
     font-size:16px;
     padding: 11px;
@@ -196,6 +200,8 @@ input, textarea, .uneditable-input {
 
 .form-group{
   display: inline-block;
+  float: left;
+  padding-right: 10px;
 }
 
 
@@ -216,5 +222,18 @@ input, textarea, .uneditable-input {
     img{
       width:90px;
     }
+  }
+}
+
+
+/* users show */
+
+#favorites_table{
+  td{
+    padding-right: 20px;
+  }
+  
+  th{
+    padding-bottom: 15px;
   }
 }

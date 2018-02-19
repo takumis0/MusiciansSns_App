@@ -12,19 +12,18 @@ class UsersController < ApplicationController
   end
   
   def autocomplete_user()
-    #オートコンプリートの候補表示部分、
-    user_names =  User.autocomplete(params[:term]).pluck(:name) #いらないかも
+    # オートコンプリートの候補表示部分、
+    #user_names =  User.autocomplete(params[:term]).pluck(:name)
     
-    case params[:options]
+    case params[:options] # user_search_option(select)で選んだoptionを取得
     when "artistTerm"
       user_names = User.joins(:favorites).autocomplete_artist(params[:term]).pluck(:artist)
     when "songTerm"
       user_names = User.joins(:favorites).autocomplete_song(params[:term]).pluck(:song)
     else
-      user_names += User.joins(:favorites).autocomplete_artist(params[:term]).pluck(:artist)
+      user_names = User.joins(:favorites).autocomplete_artist(params[:term]).pluck(:artist)
       user_names += User.joins(:favorites).autocomplete_song(params[:term]).pluck(:song)
     end
-    
     respond_to do |format|
       format.html
       format.json {
