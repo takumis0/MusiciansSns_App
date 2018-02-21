@@ -34,7 +34,7 @@ class User < ActiveRecord::Base
         where_body += ' OR ' unless where_body.blank?
         where_body += "(name LIKE '%#{fixed_pattern}%' OR favorites.song LIKE '%#{fixed_pattern}%' OR favorites.artist LIKE '%#{fixed_pattern}%')"
       end
-      User.eager_load(:favorites).where(where_body)
+      User.eager_load(:favorites).where(where_body).order("favorites.artist ASC")
     else
       User.all #全て表示。
     end
