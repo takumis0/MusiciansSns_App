@@ -1,17 +1,16 @@
 <%= javascript_include_tag "createFavorite.js" %>
 <%= javascript_include_tag "itunesSearch.js" %>
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet">
 <% provide(:title, @user.name) %>
 <div class="row">
   <aside class="col-md-10 col-md-offset-1">
     <section>
       <h1>
-        
         <%= image_tag @user.avatar, class: "col-med-1" %>
         <%= @user.name %>
       </h1>
-      
       <p>
-        Birthday : <%= @user.birthday.strftime("%Y年%m月%d日") %> </br>
+        Birthday : <%= figure_age(@user.birthday) %>歳 ( <%= @user.birthday.strftime("%Y年%m月%d日") %> 生まれ )</br>
         Address : <%= @user.pref.name %> </br>
         </p>
         <div class = "jumbotron">
@@ -20,20 +19,5 @@
         </div>
     </section>
   </aside>
-  
-  <% if @user == current_user %>
-  <div class="col-md-8 col-md-offset-2">
-  <%= render 'favorites/searchForm' %>
-  </div>
-  <%= render 'shared/favorite_form' %>
-  <% end %>
-  
-  <div class="col-md-8 col-md-offset-2">
-    <% if @user.favorites.any? %>
-      <h3>Favorites (<%= @user.favorites.count %>)</h3>
-      <table class="table" id="my_favorites">
-        <%= render @favorites %>
-      </table>
-    <% end %>
-  </div>
+    <%= render 'favorites/portlet_favorites' %>
 </div>

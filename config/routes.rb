@@ -1,5 +1,5 @@
 MusiciansSnsApp::Application.routes.draw do
-  get "users/show"
+  #get "users/show"
   get 'users/autocomplete_user/data' => 'users#autocomplete_user'
   get 'more_index' => 'users#more_index'
   devise_for :users, :controllers => {

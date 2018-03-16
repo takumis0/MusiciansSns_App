@@ -1,9 +1,7 @@
 module UsersHelper
-     # 該当ユーザーのメールアドレスに対応するGravatarの画像URLを返す
-    def gravatar_for(user, options = { size: 50 })
-        gravatar_id = Digest::MD5::hexdigest(user.email.downcase)
-        size = options[:size]
-        gravatar_url = "https://secure.gravatar.com/avatar/#{gravatar_id}"
-        image_tag(gravatar_url, alt: user.name, class: "gravatar")
+     # date型を受け取って、年齢を返す。
+    def figure_age(birthday)
+        date_format = "%Y%m%d"
+        (Date.today.strftime(date_format).to_i - birthday.strftime(date_format).to_i) / 10000
     end
 end

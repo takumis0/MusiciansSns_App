@@ -1,5 +1,6 @@
 @import "bootstrap";
 @import "bootstrap-sprockets";
+@import url("//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css");
 
 /* mixins, variables, etc. */
 
@@ -29,6 +30,13 @@ textarea {
 
 ul{ /* ヘッダーのautocompleteのulが隠れるため追加。Bootstrapのheaderのz-index = 1030 */
   z-index: 1031 !important;
+}
+
+a{
+  transition: transform 0.2s linear;
+  &:hover {
+    transform: scale(1.1);
+  }
 }
 
 .center {
@@ -235,7 +243,7 @@ input, textarea, .uneditable-input {
 
 /* users show */
 
-#favorites_table{
+#favorites_table {
   td{
     padding-right: 20px;
   }
@@ -243,4 +251,33 @@ input, textarea, .uneditable-input {
   th{
     padding-bottom: 15px;
   }
+}
+
+.favorite{
+  background: white;
+  z-index: 1;
+  &:hover{
+    cursor: pointer;
+  }
+}
+
+#trash_favorites_area {
+  height: 100px;
+  background: #eee;
+}
+
+#trash_icon {
+  font-size: 5em;
+  color: #606060;
+}
+
+#music_icon{
+  font-size: 3em;
+  z-index: 1;
+  opacity: 0.7;
+  color: #606060;
+}
+
+.trash_icon_active{
+  transform: scale(1.05);
 }

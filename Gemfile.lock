@@ -149,7 +149,7 @@ DEPENDENCIES
   jp_prefecture
   jquery-rails (= 3.1.2)
   jquery-turbolinks
-  jquery-ui-rails
+  jquery-ui-rails (= 6.0.1)
   mini_magick
   rails (= 4.0.5)
   sass-rails (= 4.0.3)
