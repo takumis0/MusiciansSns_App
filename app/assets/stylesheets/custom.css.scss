@@ -1,6 +1,7 @@
 @import "bootstrap";
 @import "bootstrap-sprockets";
 @import url("//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css");
+@import url('https://fonts.googleapis.com/css?family=Cabin+Sketch');
 
 /* mixins, variables, etc. */
 
@@ -12,12 +13,36 @@ $gray-medium-light: #eaeaea;
   box-sizing: border-box;
 }
 
+@-webkit-keyframes spin {
+	0% {-webkit-transform: rotate(0deg);}
+	100% {-webkit-transform: rotate(360deg);}
+}
+@-moz-keyframes spin {
+	0% {-moz-transform: rotate(0deg);}
+	100% {-moz-transform: rotate(360deg);}
+}
+@-ms-keyframes spin {
+	0% {-ms-transform: rotate(0deg);}
+	100% {-ms-transform: rotate(360deg);}
+}
+@-o-keyframes spin {
+	0% {-o-transform: rotate(0deg);}
+	100% {-o-transform: rotate(360deg);}
+}
+@keyframes spin {
+	0% {transform: rotate(0deg);}
+	100% {transform: rotate(360deg);}
+}
+
+
+
 html {
   overflow-y: scroll;
 }
 
 body {
   padding-top: 100px;
+  background-color: #fff9e3;
 }
 
 section {
@@ -57,6 +82,7 @@ h1 {
   letter-spacing: -2px;
   margin-bottom: 30px;
   text-align: center;
+  font-family: 'Cabin Sketch', cursive;
 }
 
 h2 {
@@ -212,6 +238,14 @@ input, textarea, .uneditable-input {
   padding-right: 10px;
 }
 
+.btn{
+  background-color: #eae2c7;
+  border-color: #b2aa8d;
+  &:hover{
+    background-color: #d6ceb1;
+  }
+}
+
 #iTunes-result {
   tr{
     cursor: pointer;
@@ -240,24 +274,34 @@ input, textarea, .uneditable-input {
   }
 }
 
-
-/* users show */
-
-#favorites_table {
-  td{
-    padding-right: 20px;
-  }
+.user_index_li{
   
-  th{
-    padding-bottom: 15px;
-  }
 }
+
+
+/* users show |saved| */
 
 .favorite{
   background: white;
   z-index: 1;
+  transition: transform 0.2s linear;
   &:hover{
     cursor: pointer;
+    transform: scale(1.02);
+  }
+}
+
+.trash_icon_active{
+  transform: scale(1.05);
+}
+
+#favorites_table {
+  td{
+    padding-right: 0px;
+  }
+  
+  th{
+    padding-bottom: 10px;
   }
 }
 
@@ -278,6 +322,313 @@ input, textarea, .uneditable-input {
   color: #606060;
 }
 
-.trash_icon_active{
-  transform: scale(1.05);
+.jumbotron{
+  margin: 10px 0 35px 0;
+  background-color: #ffffff;
+  box-shadow: 2px 2px 5px rgba(0,0,0,0.3);
+  h1{
+    margin: 0 0 20px 0;
+  }
+}
+
+
+.card {
+  padding-top: 20px;
+  margin: 10px 0 20px 0;
+  background-color: rgba(214, 224, 226, 0.2);
+  border-top-width: 0;
+  border-bottom-width: 2px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  .card-heading {
+    padding: 0 20px;
+    margin: 0;
+    .simple {
+      font-size: 20px;
+      font-weight: 300;
+      color: #777;
+      border-bottom: 1px solid #e5e5e5;
+    }
+    .image {
+      img {
+        display: inline-block;
+        width: 46px;
+        height: 46px;
+        margin-right: 15px;
+        vertical-align: top;
+        border: 0;
+        -webkit-border-radius: 50%;
+        -moz-border-radius: 50%;
+        border-radius: 50%;
+      }
+      .card-heading-header {
+        display: inline-block;
+        vertical-align: top;
+        h3{
+          margin: 0;
+          font-size: 14px;
+          line-height: 16px;
+          color: #262626;
+        }
+        span {
+          font-size: 12px;
+          color: #999999;
+        }
+      }
+    }
+  }
+  .card-body {
+    padding: 0 20px;
+    margin-top: 20px;
+  }
+  .card-media {
+    padding: 0 20px;
+    margin: 0 -14px;
+    img {
+      max-width: 100%;
+      max-height: 100%;
+    }
+  }
+  .card-actions {
+    min-height: 30px;
+    padding: 0 20px 20px 20px;
+    margin: 20px 0 0 0;
+  }
+  .card-comments {
+    padding: 20px;
+    margin: 0;
+    background-color: #f8f8f8;
+    .comments-collapse-toggle {
+      padding: 0;
+      margin: 0 20px 12px 20px;
+    }
+    .comments-collapse-toggle{
+      a, span{
+        padding-right: 5px;
+        overflow: hidden;
+        font-size: 12px;
+        color: #999;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+    }
+  }
+  .people {
+    position: relative;
+    display: inline-block;
+    width: 170px;
+    height: 300px;
+    padding-top: 0;
+    margin-left: 20px;
+    overflow: hidden;
+    vertical-align: top;
+    .card-top {
+      position: absolute;
+      top: 0;
+      left: 0;
+      display: inline-block;
+      width: 170px;
+      height: 150px;
+      background-color: #ffffff;
+      .green{
+        background-color: #53a93f;
+      }
+      .blue{
+        background-color: #427fed;
+      }
+    }
+    .card-info {
+      position: absolute;
+      top: 150px;
+      display: inline-block;
+      width: 100%;
+      height: 101px;
+      overflow: hidden;
+      background: #ffffff;
+      -webkit-box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      box-sizing: border-box;
+      .title {
+        display: block;
+        margin: 8px 14px 0 14px;
+        overflow: hidden;
+        font-size: 16px;
+        font-weight: bold;
+        line-height: 18px;
+        color: #404040;
+      }
+      .desc {
+        display: block;
+        margin: 8px 14px 0 14px;
+        overflow: hidden;
+        font-size: 15px;
+        line-height: 16px;
+        color: #737373;
+        text-overflow: ellipsis;
+      }
+    }
+    .card-bottom {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      display: inline-block;
+      width: 100%;
+      padding: 10px 20px;
+      line-height: 29px;
+      text-align: center;
+      -webkit-box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      box-sizing: border-box;
+    }
+  }
+}
+.card-comments .media-heading {
+    font-size: 13px;
+    font-weight: bold;
+}
+.card.people:first-child {
+    margin-left: 0;
+}
+.card.hovercard {
+  position: relative;
+  padding-top: 0;
+  overflow: hidden;
+  text-align: center;
+  background-color: rgba(214, 224, 226, 0.2);
+  .cardheader {
+    background: url("http://lorempixel.com/850/280/nature/4/");
+    background-size: cover;
+    height: 200px;
+  }
+  .avatar {
+    position: relative;
+    top: -50px;
+    margin-bottom: -50px;
+    img {
+      width: 150px;
+      height: 150px;
+      max-width: 150px;
+      max-height: 150px;
+      -webkit-border-radius: 50%;
+      -moz-border-radius: 50%;
+      border-radius: 50%;
+      border: 5px solid rgba(255,255,255,0.5);
+      transition: transform 0.2s linear;
+      &:hover{
+        cursor: pointer;
+        transform: scale(1.05);
+      }
+    }
+  }
+  .info {
+    padding: 4px 8px 10px;
+    .title {
+      margin-bottom: 4px;
+      font-size: 24px;
+      line-height: 1;
+      color: #262626;
+      vertical-align: middle;
+    }
+    .desc {
+      overflow: hidden;
+      font-size: 14px;
+      line-height: 20px;
+      color: #737373;
+      text-overflow: ellipsis;
+    }
+  }
+}
+
+#profile_user_name{
+  margin: 7px 0 13px 0;
+}
+
+
+
+/* users show |search_form| */
+
+.music_data{
+  background: white;
+  z-index: 1;
+  transition: transform 0.2s linear;
+  &:hover{
+    cursor: pointer;
+    transform: scale(1.02);
+  }
+}
+
+#registration_favorites_container{
+  top: 00px;
+  position: relative;
+  transition: top 0.3s linear ;
+  &:hover{
+    top: 0;
+  }
+}
+
+
+/* Home */
+#car_image{
+  width: 270px;
+  height: auto;
+  float: right;
+  margin: 65px 200px 60px 0;
+}
+
+#waiting_image{
+  float: left;
+  clear: left;
+  height: 160px;
+  width: auto;
+  margin: 50px 0 0 280px;
+}
+
+#front_logo_container{
+  margin: 0 0 0 80px;
+  h1{
+    float: left;
+    clear: left;
+    font-size: 7em;
+    margin: 0 0 0 0;
+  }
+}
+
+#home_form_group{
+  margin-top: 50px;
+  margin-bottom: 0px;
+}
+
+#record_image{
+  height: auto;
+  width: 160px;
+  filter: drop-shadow(0px 0px 10px rgba(0, 0, 0, 0.4));
+  margin: 17px 0 0 120px;
+  -webkit-animation: spin 6s linear infinite;
+    -moz-animation: spin 6s linear infinite;
+    -ms-animation: spin 6s linear infinite;
+    -o-animation: spin 6s linear infinite;
+    animation: spin 6s linear infinite;
+}
+
+/* Help */
+#fishing_image{
+  margin: 30px 0 90px 512px;
+  width: auto;
+  height: 160px;
+  float: left;
+}
+
+.logo_image{
+  float: left;
+  clear: left;
+  margin: 10px 0 0px 90px;
+  width: auto;
+  height: 80px;
 }

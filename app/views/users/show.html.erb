@@ -1,23 +1,38 @@
 <%= javascript_include_tag "createFavorite.js" %>
 <%= javascript_include_tag "itunesSearch.js" %>
-<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet">
+<%= javascript_include_tag "change_background.js" %>
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" rel="stylesheet">
 <% provide(:title, @user.name) %>
-<div class="row">
-  <aside class="col-md-10 col-md-offset-1">
-    <section>
-      <h1>
-        <%= image_tag @user.avatar, class: "col-med-1" %>
-        <%= @user.name %>
-      </h1>
-      <p>
-        Birthday : <%= figure_age(@user.birthday) %>歳 ( <%= @user.birthday.strftime("%Y年%m月%d日") %> 生まれ )</br>
-        Address : <%= @user.pref.name %> </br>
-        </p>
-        <div class = "jumbotron">
-          <h1><small>Introduction</small></h1>
-          <p><small><%= @user.introduction %></small></p>
+
+
+
+<div class="container">
+	<div class="row">
+		<div class="col-md-12">
+      <div class="card hovercard">
+        <div class="cardheader">
         </div>
-    </section>
-  </aside>
-    <%= render 'favorites/portlet_favorites' %>
+        <div class="avatar">
+          <%= image_tag @user.avatar %>
+        </div>
+        <div class="info">
+          <div class="title">
+            <h1 id='profile_user_name'><%= @user.name %></h1>
+          </div>
+          <div class="desc">Birthday : <%= figure_age(@user.birthday) %>歳 ( <%= @user.birthday.strftime("%Y年%m月%d日") %> 生まれ )</div>
+          <div class="desc">Address : <%= @user.pref.name %></div>
+          <div class="desc">Tech geek</div>
+          <aside class="col-md-10 col-md-offset-1">
+            <div class = "jumbotron">
+              <h1><small>Introduction</small></h1>
+              <p><small><%= @user.introduction %></small></p>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </div>
+	</div>
+</div>
+<div class="row">
+  <%= render 'favorites/portlet_favorites' %>
 </div>

@@ -38,10 +38,13 @@ class UsersController < ApplicationController
       having_word_users = User.where(id: having_word_users_id).group(:id).order(for_case + 'id') #order by caseで、id順番指定
       having_word_users
     end
+    
+    
   end
   
-  def more_index
+  def more_index #もっと読み込むアクション
     index
+    
   end
   
   def autocomplete_user()

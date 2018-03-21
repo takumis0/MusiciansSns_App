@@ -1,11 +1,27 @@
-<div class="container-inner" style='margin-top:50px;'>
+<div class="container-inner" style='margin-top:0px;'>
+  <div id='front_logo_container'>
+    <h1>FAVORITES</h1>
+    <h1>RECORDS</h1>
+  </div>
+  <%= image_tag 'record_image.png', :id=>'record_image' %> 
   <div class="row">
-    <div class="text-center col-xs-12 col-md-8 col-md-offset-2">
+    <div class="text-center col-xs-12 col-md-8 col-md-offset-2" id='home_form_group'>
       <%= render 'shared/autocomp_search_form' %>
+    </div>
+  </div>
+  <div class='row'>
+    <div id='waiting_image_container'>
+      <%= image_tag 'wait.png', :id=>'waiting_image' %>
+    </div>
+    <div id='car_image_container'>
+      <%= image_tag 'cars.png',:id =>'car_image' %>
     </div>
   </div>
 </div>
 
+<%
+=begin
+%>
 <% if signed_in? %>
 <div class="container">
   <div class="col-xs-10">
@@ -28,3 +44,6 @@
   </div>
 </div>
 <% end %>
+<%
+=end
+%>
