@@ -1,20 +1,37 @@
-<%= javascript_include_tag "createFavorite.js" %>
-<%= javascript_include_tag "itunesSearch.js" %>
 <%= javascript_include_tag "change_background.js" %>
+<% if @user == current_user %>
+  <%= javascript_include_tag "createFavorite.js", "itunesSearch.js", "changeAvatars.js" %>
+<% end %>
 <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" rel="stylesheet">
 <% provide(:title, @user.name) %>
-
-
-
 <div class="container">
 	<div class="row">
 		<div class="col-md-12">
       <div class="card hovercard">
         <div class="cardheader">
+          <% if @user.header.url.nil? %>
+            <%= image_tag 'record_background.png', :id=>'image_inCardheader' %>
+          <% else %>
+            <%= image_tag @user.header, :id=>'image_inCardheader' %>
+          <% end %>
         </div>
         <div class="avatar">
-          <%= image_tag @user.avatar %>
+          <% if @user.avatar.url.nil? %>
+            <%= image_tag 'unknown_person.png', :id=>'image_inAvatar' %>
+          <% else %>
+            <%= image_tag @user.avatar, :id=>'image_inAvatar' %>
+          <% end %>
         </div>
+        <%= form_for(@user, :url => {:controller => "users", :action => "edit_avatar_image" }) do |f| %>
+          <%= f.file_field :attr_avatar %>
+          <%= f.hidden_field :avatar_cache %>
+          <%= f.submit "", id: "submit_for_avatar" %>
+        <% end %>
+        <%= form_for(@user, :url => {:controller => "users", :action => "edit_header_image" }) do |f| %>
+          <%= f.file_field :attr_header %>
+          <%= f.hidden_field :header_cache %>
+          <%= f.submit "Create my header", class: "btn btn-lg btn-primary", id: "submit_for_header" %>
+        <% end %>
         <div class="info">
           <div class="title">
             <h1 id='profile_user_name'><%= @user.name %></h1>

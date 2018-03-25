@@ -2,6 +2,7 @@ class User < ActiveRecord::Base
   has_many :favorites, dependent: :destroy
   validates :name, presence: true, length: {maximum: 50}
   mount_uploader :avatar, AvatarUploader
+  mount_uploader :header, HeaderUploader
   
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable

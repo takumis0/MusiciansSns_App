@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180204002730) do
+ActiveRecord::Schema.define(version: 20180325002154) do
 
   create_table "favorites", force: true do |t|
     t.string   "artist"
@@ -41,6 +41,7 @@ ActiveRecord::Schema.define(version: 20180204002730) do
     t.date     "birthday"
     t.integer  "prefecture_code"
     t.string   "avatar"
+    t.string   "header"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

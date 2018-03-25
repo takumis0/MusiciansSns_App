@@ -275,7 +275,31 @@ input, textarea, .uneditable-input {
 }
 
 .user_index_li{
-  
+  background-color: white;
+  border-radius: 7px 7px 7px 7px;
+  margin-bottom: 10px;
+  &:hover{
+    cursor: pointer;
+    background-color: #f7f7f7;
+  }
+}
+
+.index_avatar{
+  margin: 8px 15px auto 20px;
+  float: left;
+}
+
+.index_hitting_texts{
+  float: right;
+  clear: right;
+  margin: 2px 30px 0 0;
+}
+
+.user_name_index{
+  float: left;
+  margin: 39px 0 0 129px;
+  font-size: 1.1em;
+  position: absolute;
 }
 
 
@@ -502,8 +526,8 @@ input, textarea, .uneditable-input {
   overflow: hidden;
   text-align: center;
   background-color: rgba(214, 224, 226, 0.2);
+  background-image: url(https://www.transparenttextures.com/patterns/brushed-alum-dark.png);
   .cardheader {
-    background: url("http://lorempixel.com/850/280/nature/4/");
     background-size: cover;
     height: 200px;
   }
@@ -520,11 +544,6 @@ input, textarea, .uneditable-input {
       -moz-border-radius: 50%;
       border-radius: 50%;
       border: 5px solid rgba(255,255,255,0.5);
-      transition: transform 0.2s linear;
-      &:hover{
-        cursor: pointer;
-        transform: scale(1.05);
-      }
     }
   }
   .info {
@@ -550,6 +569,24 @@ input, textarea, .uneditable-input {
   margin: 7px 0 13px 0;
 }
 
+#image_inCardheader{
+  width: 100%;
+  clip: rect(0px, 1140px, 200px, 0px);
+  position: absolute;
+  left: 0;
+}
+
+#user_attr_avatar, #submit_for_avatar, #user_attr_header, #submit_for_header {
+  display:none;
+}
+
+.for_linkers{
+  transition: transform 0.2s linear;
+  &:hover{
+    cursor: pointer;
+    transform: scale(1.02);
+  }
+}
 
 
 /* users show |search_form| */
@@ -607,15 +644,19 @@ input, textarea, .uneditable-input {
 
 #record_image{
   height: auto;
-  width: 160px;
+  width: 150px;
   filter: drop-shadow(0px 0px 10px rgba(0, 0, 0, 0.4));
-  margin: 17px 0 0 120px;
+  margin: 26px 0 0 60px;
+}
+
+.rotate_image{
   -webkit-animation: spin 6s linear infinite;
     -moz-animation: spin 6s linear infinite;
     -ms-animation: spin 6s linear infinite;
     -o-animation: spin 6s linear infinite;
     animation: spin 6s linear infinite;
 }
+
 
 /* Help */
 #fishing_image{
