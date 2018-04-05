@@ -25,6 +25,62 @@ class UsersController < ApplicationController
     redirect_to :action => 'show', :id => @user.id
   end
   
+  def registration_twitter_id
+    @user = current_user
+    @user.tw_id = params[:user][:tw_id].strip
+    @user.save
+    redirect_to :action => 'show', :id => @user.id
+  end
+  
+  def destroy_twitter_id
+    @user = current_user
+    @user.tw_id = nil
+    @user.save
+    redirect_to :action => 'show', :id => @user.id
+  end
+  
+  def registration_line_id
+    @user = current_user
+    @user.line_id = params[:user][:line_id].strip
+    @user.save
+    redirect_to :action => 'show', :id => @user.id
+  end
+  
+  def destroy_line_id
+    @user = current_user
+    @user.line_id = nil
+    @user.save
+    redirect_to :action => 'show', :id => @user.id
+  end
+  
+  def registration_facebook_id
+    @user = current_user
+    @user.fb_id = params[:user][:fb_id].strip
+    @user.save
+    redirect_to :action => 'show', :id => @user.id
+  end
+  
+  def destroy_facebook_id
+    @user = current_user
+    @user.fb_id = nil
+    @user.save
+    redirect_to :action => 'show', :id => @user.id
+  end
+  
+  def registration_adress_id
+    @user = current_user
+    @user.contact_adress = params[:user][:contact_adress].strip
+    @user.save
+    redirect_to :action => 'show', :id => @user.id
+  end
+  
+  def destroy_adress_id
+    @user = current_user
+    @user.contact_adress = nil
+    @user.save
+    redirect_to :action => 'show', :id => @user.id
+  end
+  
   def search(search)
     @existKeyBool = true #検索ワードの有無
     if search == nil || search == ''
@@ -82,6 +138,6 @@ class UsersController < ApplicationController
   
   private
     def user_params
-        params.require(:user).permit(:name, :email, :introduction, :prefecture_code, :birthday, :avatar, :header)
+        params.require(:user).permit(:name, :email, :introduction, :prefecture_code, :birthday, :avatar, :header, :tw_id)
     end
 end

@@ -8,37 +8,31 @@
 	<div class="row">
 		<div class="col-md-12">
       <div class="card hovercard">
-        <div class="cardheader">
-          <% if @user.header.url.nil? %>
-            <%= image_tag 'record_background.png', :id=>'image_inCardheader' %>
-          <% else %>
-            <%= image_tag @user.header, :id=>'image_inCardheader' %>
-          <% end %>
-        </div>
-        <div class="avatar">
-          <% if @user.avatar.url.nil? %>
-            <%= image_tag 'unknown_person.png', :id=>'image_inAvatar' %>
-          <% else %>
-            <%= image_tag @user.avatar, :id=>'image_inAvatar' %>
-          <% end %>
-        </div>
-        <%= form_for(@user, :url => {:controller => "users", :action => "edit_avatar_image" }) do |f| %>
-          <%= f.file_field :attr_avatar %>
-          <%= f.hidden_field :avatar_cache %>
-          <%= f.submit "", id: "submit_for_avatar" %>
-        <% end %>
-        <%= form_for(@user, :url => {:controller => "users", :action => "edit_header_image" }) do |f| %>
-          <%= f.file_field :attr_header %>
-          <%= f.hidden_field :header_cache %>
-          <%= f.submit "Create my header", class: "btn btn-lg btn-primary", id: "submit_for_header" %>
-        <% end %>
+        <%= render 'profile_card' %>
         <div class="info">
           <div class="title">
             <h1 id='profile_user_name'><%= @user.name %></h1>
           </div>
           <div class="desc">Birthday : <%= figure_age(@user.birthday) %>歳 ( <%= @user.birthday.strftime("%Y年%m月%d日") %> 生まれ )</div>
           <div class="desc">Address : <%= @user.pref.name %></div>
-          <div class="desc">Tech geek</div>
+          <div class='col-md-10 col-md-offset-1'>
+            <div id='sns_icons' class='row'>
+              <%= render 'users/sns_forms/adress/adress_mbutton' %>
+              <%= render 'users/sns_forms/facebook/fb_mbutton' %>
+              <%= render 'users/sns_forms/twitter/tw_mbutton' %>
+              <%= render 'users/sns_forms/line/line_mbutton' %>
+            </div>
+          </div>
+          <div class="container">
+            <%= render 'users/sns_forms/twitter/tw_form' %>
+            <%= render 'users/sns_forms/twitter/tw_info' %>
+            <%= render 'users/sns_forms/line/line_form' %>
+            <%= render 'users/sns_forms/line/line_info' %>
+            <%= render 'users/sns_forms/facebook/fb_form' %>
+            <%= render 'users/sns_forms/facebook/fb_info' %>
+            <%= render 'users/sns_forms/adress/adress_form' %>
+            <%= render 'users/sns_forms/adress/adress_info' %>
+          </div>
           <aside class="col-md-10 col-md-offset-1">
             <div class = "jumbotron">
               <h1><small>Introduction</small></h1>

@@ -1,7 +1,11 @@
-@import "bootstrap";
 @import "bootstrap-sprockets";
+@import "bootstrap";
+@import "font-awesome-sprockets";
+@import "font-awesome";
 @import url("//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css");
 @import url('https://fonts.googleapis.com/css?family=Cabin+Sketch');
+
+
 
 /* mixins, variables, etc. */
 
@@ -104,8 +108,8 @@ p {
 
 #logo {
   float: left;
-  margin-right: 10px;
-  font-size: 1.7em;
+  margin: 0px 10px 10px 0px;
+  font-size: 0.9em;
   color: white;
   text-transform: uppercase;
   letter-spacing: -1px;
@@ -238,14 +242,6 @@ input, textarea, .uneditable-input {
   padding-right: 10px;
 }
 
-.btn{
-  background-color: #eae2c7;
-  border-color: #b2aa8d;
-  &:hover{
-    background-color: #d6ceb1;
-  }
-}
-
 #iTunes-result {
   tr{
     cursor: pointer;
@@ -308,11 +304,6 @@ input, textarea, .uneditable-input {
 .favorite{
   background: white;
   z-index: 1;
-  transition: transform 0.2s linear;
-  &:hover{
-    cursor: pointer;
-    transform: scale(1.02);
-  }
 }
 
 .trash_icon_active{
@@ -355,6 +346,40 @@ input, textarea, .uneditable-input {
   }
 }
 
+#sns_icons{
+  margin-top: 10px;
+  i {
+    
+  }
+  button {
+    margin: 0px;
+  }
+}
+
+#mail_icon {
+  color: #f3a11d;
+}
+#facebook_icon {
+  color: #3b5998;
+}
+#line_icon {
+  color: #00b900;
+}
+#twitter_icon {
+  color: #1da1f3;
+}
+
+.invalid_icon{
+  opacity: 0.3;
+  color: black !important;
+  pointer-events: none;
+  margin: 0 0 0 7px;
+}
+
+.blankSns_icon{
+  opacity: 0.3;
+  color: black !important;
+}
 
 .card {
   padding-top: 20px;
@@ -655,6 +680,73 @@ input, textarea, .uneditable-input {
     -ms-animation: spin 6s linear infinite;
     -o-animation: spin 6s linear infinite;
     animation: spin 6s linear infinite;
+}
+
+
+/* user show |Modal Window| */
+.modal_open_button{
+  visibility: hidden;
+  margin: 0;
+  padding: 0;
+  width: 53px;
+  height: 56px;
+  i{
+    visibility: visible;
+  }
+}
+
+.modal-dialog{
+  left: 0px !important;
+  .modal-content{
+    .panel{
+      margin-bottom: 0px;
+      .container {
+        margin-left: 86px;
+        width: 100%;
+      }
+      .panel-heading{
+        height: 43px;
+      }
+    }
+  }
+  .btn {
+    width: 100px;
+    float: right;
+  }
+  .row{
+    width: 232px;
+    margin: 13px auto 0 auto;
+  }
+}
+
+#user_tw_id{
+  width: 60%;
+}
+#delete_for_tw {
+  margin-right: 20px;
+}
+#user_line_id{
+  width: 60%;
+}
+#delete_for_line {
+  margin-right: 20px;
+}
+#user_fb_id{
+  width: 60%;
+}
+#delete_for_fb {
+  margin-right: 20px;
+}
+#user_contact_adress {
+  width: 60%;
+}
+#delete_for_adress {
+  margin-right: 20px;
+}
+#at_sign{
+  float: left;
+  font-size: 1.7em;
+  margin-right: 10px;
 }
 
 

@@ -3,7 +3,9 @@
 <header class="navbar navbar-fixed-top navbar-inverse">
   <div class="navbar-inner">
     <div class="container">
-      <%= link_to "FR", root_path, id: "logo" %>
+      <%= link_to root_path, :id=>'logo', method: :get do %>
+        <%= icon('fas', 'home', class: 'fa-3x') %>
+      <% end %>
       <% unless controller.action_name == 'index' || controller.action_name == 'home' %>
       <div class="text-center col-md-8" style='margin-top: 10px;'>
         <%= render 'shared/autocomp_search_form' %>
@@ -29,6 +31,7 @@
               </ul>
             </li>
           <% else %>
+            <li><%= link_to "Sign up", new_user_registration_path %></li>
             <li><%= link_to "Sign in", new_user_session_path %></li>
           <% end %>
         </ul>

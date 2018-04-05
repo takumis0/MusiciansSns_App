@@ -54,34 +54,6 @@
         </div>
         
         <div class="field">
-          <div class="col-md-2" style="float:right; margin-right:30px">
-          <% if @user.avatar? %>
-            <%= image_tag @user.avatar.url %>
-          <% end %>
-          </div>
-          <div class ="col-md-9" style="padding-left:0">
-            <%= f.label :avatar, class: "control-label" %>
-            <%= f.file_field :avatar %>
-            <%= f.hidden_field :avatar_cache %>
-          </div>
-        </div>
-        
-        <div class="field">
-          <div class="col-md-2" style="float:right; margin-right:30px">
-          <% if @user.header? %>
-            <%= image_tag @user.header.url %>
-          <% end %>
-          </div>
-          <div class ="col-md-9" style="padding-left:0">
-            <%= f.label :header, class: "control-label" %>
-            <%= f.file_field :header %>
-            <%= f.hidden_field :header_cache %>
-          </div>
-        </div>
-        
-        
-        
-        <div class="field">
           <%= f.label :introduction, autofocus: true, class: "control-label" %>
           <%= f.text_area :introduction, autocomplete: "off", class: "form-control", :rows=>"20" %>
         </div>

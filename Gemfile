@@ -14,6 +14,7 @@ gem 'carrierwave'
 gem 'mini_magick'
 gem 'jquery-turbolinks'
 gem 'arel'
+gem 'font-awesome-sass'
 
 group :development do
   gem 'sqlite3', '1.3.9'

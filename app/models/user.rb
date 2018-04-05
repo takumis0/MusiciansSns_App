@@ -1,6 +1,9 @@
 class User < ActiveRecord::Base
   has_many :favorites, dependent: :destroy
   validates :name, presence: true, length: {maximum: 50}
+  
+  validates :tw_id, presence: false, length: { maximum: 15 }, format:{ with: /\A[A-Za-z]\w*\z/ }, on: :registration_twitter_id
+  
   mount_uploader :avatar, AvatarUploader
   mount_uploader :header, HeaderUploader
   

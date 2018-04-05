@@ -4,12 +4,19 @@ MusiciansSnsApp::Application.routes.draw do
   get 'more_index' => 'users#more_index'
   patch 'edit_avatar_image' => 'users#edit_avatar_image'
   patch 'edit_header_image' => 'users#edit_header_image'
+  patch 'registration_twitter_id' => 'users#registration_twitter_id'
+  patch 'destroy_twitter_id' => 'users#destroy_twitter_id'
+  patch 'registration_line_id' => 'users#registration_line_id'
+  patch 'destroy_line_id' => 'users#destroy_line_id'
+  patch 'registration_facebook_id' => 'users#registration_facebook_id'
+  patch 'destroy_facebook_id' => 'users#destroy_facebook_id'
+  patch 'registration_adress_id' => 'users#registration_adress_id'
+  patch 'destroy_adress_id' => 'users#destroy_adress_id'
   devise_for :users, :controllers => {
     :registrations => "registrations"
   }
   resources :users
   resources :favorites, only: [:create, :destroy]
-  
   root  'static_pages#home'
   match '/help',    to: 'static_pages#help',    via: 'get'
   match '/about',   to: 'static_pages#about',   via: 'get'
