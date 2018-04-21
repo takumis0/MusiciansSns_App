@@ -23,4 +23,15 @@ module ApplicationHelper
             flash_type.to_s
         end
     end
+    
+    def registrations_erros_normalization(st)
+        string = st.to_s
+        if string.include?('@')
+            norm = string.split('@')
+            normalized = norm[1]
+        else
+            normalized = string
+        end
+        normalized
+    end
 end

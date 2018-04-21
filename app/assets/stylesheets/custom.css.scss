@@ -160,6 +160,14 @@ footer {
 }
 
 
+/* alert */
+.alert-warning{
+  background-color: #ffdfcc;
+  border-color: #d6b5a0;
+  color: #7c6354;
+}
+
+
 /* sidebar */
 
 aside {
@@ -240,6 +248,14 @@ input, textarea, .uneditable-input {
   display: inline-block;
   float: left;
   padding-right: 10px;
+}
+
+.button_colored{
+  background: #ddd09f;
+  border-color: #b2a67b;
+  &:hover{
+    background: #b2a67b;
+  }
 }
 
 #iTunes-result {
@@ -337,6 +353,39 @@ input, textarea, .uneditable-input {
   color: #606060;
 }
 
+#introduction_modal{
+  .modal-dialog{
+    width: 70%;
+  }
+}
+
+#intro_form_container{
+  margin: 0;
+  padding: 0 17px 0 0;
+}
+
+#submit_for_intro{
+  float: none;
+}
+
+#introduction_jumbo{
+  padding-bottom: 70px;
+  .fa-edit{
+    color: #7f7f7f;
+    font-size: 1.7em;
+  }
+  .fa-youtube-square{
+    color: #d85858;
+  }
+  .modal_open_button{
+    float: right;
+    position: absolute;
+  }
+  .intro_text{
+    font-size: 0.8em;
+  }
+}
+
 .jumbotron{
   margin: 10px 0 35px 0;
   background-color: #ffffff;
@@ -348,9 +397,7 @@ input, textarea, .uneditable-input {
 
 #sns_icons{
   margin-top: 10px;
-  i {
-    
-  }
+  height: 80px;
   button {
     margin: 0px;
   }
@@ -368,17 +415,28 @@ input, textarea, .uneditable-input {
 #twitter_icon {
   color: #1da1f3;
 }
+#instagram_icon{
+  color: #bb72db;
+}
 
 .invalid_icon{
   opacity: 0.3;
   color: black !important;
   pointer-events: none;
-  margin: 0 0 0 7px;
 }
 
 .blankSns_icon{
   opacity: 0.3;
   color: black !important;
+}
+
+.mbutton_box{
+  button{
+    position: absolute;
+  }
+  width: 70px;
+  height: 0px;
+  display: inline-block;
 }
 
 .card {
@@ -561,10 +619,9 @@ input, textarea, .uneditable-input {
     top: -50px;
     margin-bottom: -50px;
     img {
-      width: 150px;
-      height: 150px;
-      max-width: 150px;
-      max-height: 150px;
+      object-fit: cover;
+      width: 160px;
+      height: 160px;
       -webkit-border-radius: 50%;
       -moz-border-radius: 50%;
       border-radius: 50%;
@@ -611,6 +668,30 @@ input, textarea, .uneditable-input {
     cursor: pointer;
     transform: scale(1.02);
   }
+}
+
+#sns_buttons{
+  height: 80px;
+  width: auto;
+  float: none;
+  position: relative;
+  padding-right: 58px;
+}
+
+#youtube_iframe{
+  margin-left: 15%;
+  width: 70%;
+  height: 100%;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+  border: 7px solid rgba(255, 255, 255, 0.5);
+  background-color: #fffaf9;
+}
+
+#youtube_block{
+  width: 100%;
+  height: 330px;
+  display: table;
+  margin: 30px auto 20px auto;
 }
 
 
@@ -719,6 +800,25 @@ input, textarea, .uneditable-input {
   }
 }
 
+.panel-purple{
+  color: #63347a;
+  background-color: #eecffc;
+  border-color: #bea1cc;
+}
+
+.purple_button{
+  color: white;
+  background: #a165bf;
+  &:hover{
+    background: #784591;
+  }
+}
+
+#for_url_input{
+  margin-left: 0px;
+  
+}
+
 #user_tw_id{
   width: 60%;
 }
@@ -743,8 +843,19 @@ input, textarea, .uneditable-input {
 #delete_for_adress {
   margin-right: 20px;
 }
+#user_insta_id{
+  width: 60%;
+}
+#delete_for_insta{
+  margin-right: 20px;
+}
+#user_yt_url{
+  width: 97%;
+}
+#delete_for_yt{
+  margin-right: 20px;
+}
 #at_sign{
-  float: left;
   font-size: 1.7em;
   margin-right: 10px;
 }

@@ -11,72 +11,135 @@ class UsersController < ApplicationController
     @favorite = @favorites.build if signed_in?
   end
   
-  def edit_avatar_image
+  def edit_avatar_image #プロフィール画像変更
     @user = current_user
     @user.avatar = params[:user][:attr_avatar]
     @user.save
     redirect_to :action => 'show', :id => @user.id
   end
   
-  def edit_header_image
+  def edit_header_image #ヘッダー画像変更
     @user = current_user
     @user.header = params[:user][:attr_header]
     @user.save
     redirect_to :action => 'show', :id => @user.id
   end
   
-  def registration_twitter_id
+  def edit_introduction #自己紹介文 変更
     @user = current_user
-    @user.tw_id = params[:user][:tw_id].strip
+    @user.introduction = params[:user][:introduction]
     @user.save
     redirect_to :action => 'show', :id => @user.id
   end
   
-  def destroy_twitter_id
+  def registration_twitter_id #Twitter_ID 変更
+    @user = current_user
+    @user.tw_id = params[:user][:tw_id].strip
+    if @user.save
+      redirect_to :action => 'show', :id => @user.id
+    else
+      flash[:alert] = @user.errors.full_messages
+      redirect_to :action => 'show', :id => @user.id
+    end
+  end
+  
+  def destroy_twitter_id #Twitter_ID 削除
     @user = current_user
     @user.tw_id = nil
     @user.save
     redirect_to :action => 'show', :id => @user.id
   end
   
-  def registration_line_id
+  def registration_line_id #LINE_ID 変更
     @user = current_user
     @user.line_id = params[:user][:line_id].strip
-    @user.save
-    redirect_to :action => 'show', :id => @user.id
+    if @user.save
+      redirect_to :action => 'show', :id => @user.id
+    else
+      flash[:alert] = @user.errors.full_messages
+      redirect_to :action => 'show', :id => @user.id
+    end
   end
   
-  def destroy_line_id
+  def destroy_line_id #LINE_ID 削除
     @user = current_user
     @user.line_id = nil
     @user.save
     redirect_to :action => 'show', :id => @user.id
   end
   
-  def registration_facebook_id
+  def registration_facebook_id #Facebook_ID 変更
     @user = current_user
     @user.fb_id = params[:user][:fb_id].strip
-    @user.save
-    redirect_to :action => 'show', :id => @user.id
+    if @user.save
+      redirect_to :action => 'show', :id => @user.id
+    else
+      flash[:alert] = @user.errors.full_messages
+      redirect_to :action => 'show', :id => @user.id
+    end
   end
   
-  def destroy_facebook_id
+  def destroy_facebook_id #Facebook_ID 削除
     @user = current_user
     @user.fb_id = nil
     @user.save
     redirect_to :action => 'show', :id => @user.id
   end
   
-  def registration_adress_id
+  def registration_adress_id #コンタクト用アドレス 変更
     @user = current_user
     @user.contact_adress = params[:user][:contact_adress].strip
+    if @user.save
+      redirect_to :action => 'show', :id => @user.id
+    else
+      flash[:alert] = @user.errors.full_messages
+      redirect_to :action => 'show', :id => @user.id
+    end
+  end
+  
+  def destroy_adress_id #コンタクト用アドレス 削除
+    @user = current_user
+    @user.contact_adress = nil
     @user.save
     redirect_to :action => 'show', :id => @user.id
   end
   
-  def destroy_adress_id
+  def registration_instagram_id #insta_id 変更
     @user = current_user
-    @user.contact_adress = nil
+    @user.insta_id = params[:user][:insta_id].strip
+    if @user.save
+      redirect_to :action => 'show', :id => @user.id
+    else
+      flash[:alert] = @user.errors.full_messages
+      redirect_to :action => 'show', :id => @user.id
+    end
+  end
+  
+  def destroy_instagram_id #insta_id 削除
+    @user = current_user
+    @user.insta_id = nil
+    @user.save
+    redirect_to :action => 'show', :id => @user.id
+  end
+  
+  def registration_youtube_url
+    @user = current_user
+    new_yt_url = params[:user][:yt_url]
+    @user.yt_url = new_yt_url
+    if @user.valid?(:yt_url)
+      @user.video_id = view_context.make_video_id(new_yt_url)
+      @user.save
+      redirect_to :action => 'show', :id => @user.id
+    else
+      flash[:alert] = @user.errors.full_messages
+      redirect_to :action => 'show', :id => @user.id
+    end
+  end
+  
+  def destroy_youtube_url
+    @user = current_user
+    @user.yt_url = nil
+    @user.video_id = nil
     @user.save
     redirect_to :action => 'show', :id => @user.id
   end
@@ -138,6 +201,7 @@ class UsersController < ApplicationController
   
   private
     def user_params
-        params.require(:user).permit(:name, :email, :introduction, :prefecture_code, :birthday, :avatar, :header, :tw_id)
+        params.require(:user).permit(:name, :email, :introduction, :prefecture_code, :birthday, :avatar, :header, 
+                                     :tw_id, :line_id, :contact_adress, :fb_id, :insta_id)
     end
 end

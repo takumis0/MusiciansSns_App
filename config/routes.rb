@@ -4,6 +4,7 @@ MusiciansSnsApp::Application.routes.draw do
   get 'more_index' => 'users#more_index'
   patch 'edit_avatar_image' => 'users#edit_avatar_image'
   patch 'edit_header_image' => 'users#edit_header_image'
+  patch 'edit_introduction' => 'users#edit_introduction'
   patch 'registration_twitter_id' => 'users#registration_twitter_id'
   patch 'destroy_twitter_id' => 'users#destroy_twitter_id'
   patch 'registration_line_id' => 'users#registration_line_id'
@@ -12,6 +13,10 @@ MusiciansSnsApp::Application.routes.draw do
   patch 'destroy_facebook_id' => 'users#destroy_facebook_id'
   patch 'registration_adress_id' => 'users#registration_adress_id'
   patch 'destroy_adress_id' => 'users#destroy_adress_id'
+  patch 'registration_instagram_id' => 'users#registration_instagram_id'
+  patch 'destroy_instagram_id' => 'users#destroy_instagram_id'
+  patch 'registration_youtube_url' => 'users#registration_youtube_url'
+  patch 'destroy_youtube_url' => 'users#destroy_youtube_url'
   devise_for :users, :controllers => {
     :registrations => "registrations"
   }

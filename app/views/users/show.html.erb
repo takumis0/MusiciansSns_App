@@ -15,29 +15,36 @@
           </div>
           <div class="desc">Birthday : <%= figure_age(@user.birthday) %>歳 ( <%= @user.birthday.strftime("%Y年%m月%d日") %> 生まれ )</div>
           <div class="desc">Address : <%= @user.pref.name %></div>
-          <div class='col-md-10 col-md-offset-1'>
-            <div id='sns_icons' class='row'>
-              <%= render 'users/sns_forms/adress/adress_mbutton' %>
-              <%= render 'users/sns_forms/facebook/fb_mbutton' %>
-              <%= render 'users/sns_forms/twitter/tw_mbutton' %>
-              <%= render 'users/sns_forms/line/line_mbutton' %>
+          <div id='sns_buttons'>
+              <div class='mbutton_box'>
+              <%= render 'users/modals/adress/adress_mbutton' %>
+              </div><div class='mbutton_box'>
+              <%= render 'users/modals/facebook/fb_mbutton' %>
+              </div><div class='mbutton_box'>
+              <%= render 'users/modals/twitter/tw_mbutton' %>
+              </div><div class='mbutton_box'>
+              <%= render 'users/modals/line/line_mbutton' %>
+              </div><div class='mbutton_box'>
+              <%= render 'users/modals/instagram/insta_mbutton' %>
+              </div>
             </div>
           </div>
           <div class="container">
-            <%= render 'users/sns_forms/twitter/tw_form' %>
-            <%= render 'users/sns_forms/twitter/tw_info' %>
-            <%= render 'users/sns_forms/line/line_form' %>
-            <%= render 'users/sns_forms/line/line_info' %>
-            <%= render 'users/sns_forms/facebook/fb_form' %>
-            <%= render 'users/sns_forms/facebook/fb_info' %>
-            <%= render 'users/sns_forms/adress/adress_form' %>
-            <%= render 'users/sns_forms/adress/adress_info' %>
+            <%= render 'users/modals/twitter/tw_form' %>
+            <%= render 'users/modals/twitter/tw_info' %>
+            <%= render 'users/modals/line/line_form' %>
+            <%= render 'users/modals/line/line_info' %>
+            <%= render 'users/modals/facebook/fb_form' %>
+            <%= render 'users/modals/facebook/fb_info' %>
+            <%= render 'users/modals/adress/adress_form' %>
+            <%= render 'users/modals/adress/adress_info' %>
+            <%= render 'users/modals/introduction/intro_form' %>
+            <%= render 'users/modals/instagram/insta_info' %>
+            <%= render 'users/modals/instagram/insta_form' %>
+            <%= render 'users/modals/youtube/yt_form' %>
           </div>
           <aside class="col-md-10 col-md-offset-1">
-            <div class = "jumbotron">
-              <h1><small>Introduction</small></h1>
-              <p><small><%= @user.introduction %></small></p>
-            </div>
+            <%= render 'users/introduction' %>
           </aside>
         </div>
       </div>

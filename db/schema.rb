@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180330012122) do
+ActiveRecord::Schema.define(version: 20180416010114) do
 
   create_table "favorites", force: true do |t|
     t.string   "artist"
@@ -46,6 +46,9 @@ ActiveRecord::Schema.define(version: 20180330012122) do
     t.string   "tw_id"
     t.string   "fb_id"
     t.string   "line_id"
+    t.string   "insta_id"
+    t.string   "yt_url"
+    t.string   "video_id"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
