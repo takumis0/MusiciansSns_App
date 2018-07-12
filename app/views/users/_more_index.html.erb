@@ -1,0 +1,4 @@
+<%= javascript_include_tag "list_link.js" %>
+<% if @users.next_page %>
+   <%= link_to "もっと見る", {:action=>"more_index", :page => @users.next_page, :search => params[:search]}, :remote => true, id: 'more_link'%>
+<% end %> 

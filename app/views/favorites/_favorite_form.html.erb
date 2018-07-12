@@ -1,0 +1,7 @@
+<%= form_for(@favorite, :remote => true, :url => {:controller => "favorites", :action => "create" }) do |f| %>
+  <%= render 'shared/error_messages', object: f.object %>
+  <div class="field">
+    <%= f.hidden_field :song, placeholder: "Compose new song..." %>
+    <%= f.hidden_field :artist, placeholder: "Compose new artist..." %>
+  </div>
+<% end %>

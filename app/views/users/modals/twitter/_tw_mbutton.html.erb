@@ -1,0 +1,21 @@
+<% if @user.tw_id == ''||@user.tw_id == nil %>
+  <% if @user == current_user #id無&&本人 %>
+    <button type="button" class="modal_open_button" data-toggle="modal" data-target="#twitter_modal">
+    <%= icon('fab', 'twitter-square', '', id: 'twitter_icon', class: 'strong fa-4x blankSns_icon for_linkers') %>
+    </button>
+  <% else #id無&&他人 %>
+    <button type="button" class="modal_open_button" data-toggle="modal" data-target="#twitter_modal">
+    <%= icon('fab', 'twitter-square', '', id: 'twitter_icon', class: 'strong fa-4x invalid_icon') %>
+    </button>
+  <% end %>
+<% else %>
+  <% if @user == current_user #id有&&本人 %>
+    <button type="button" class="modal_open_button" data-toggle="modal" data-target="#twitter_modal">
+    <%= icon('fab', 'twitter-square', '', id: 'twitter_icon', class: 'strong fa-4x for_linkers') %>
+    </button>
+  <% else #id有&&他人 %>
+  　<button type="button" class="modal_open_button" data-toggle="modal" data-target="#twitter_info_modal">
+    <%= icon('fab', 'twitter-square', '', id: 'twitter_icon', class: 'strong fa-4x for_linkers') %>
+    </button>
+  <% end %>
+<% end %>

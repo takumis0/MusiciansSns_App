@@ -1,0 +1,19 @@
+<%= content_tag_for(:li, user, :class => "user_index_li list-group-item") do %>
+    <% if user.avatar.url == nil %>
+      <%= image_tag 'unknown_person.png', :class=>'index_avatar' %>
+    <% else %>
+      <%= image_tag user.avatar.url, :class=>'index_avatar' %> 
+    <% end %>
+    <%= link_to '', user, data: { no_turbolink: true } %>
+    <%= content_tag(:p, user.name, :class=>'user_name_index') %>
+    <% if @existKeyBool %>
+      <% @number_words[user.id].each do |key, value| %>
+        <% unless value == 0 then %>
+          <p class='text-right index_hitting_texts'>
+            <span class="border-bottom">"<%= key %>"</span> に 
+            <span class="border-bottom"><%= value %></span> 件ヒットしました。
+          </p>
+        <% end %>
+      <% end %>
+    <% end %>
+<% end %>

@@ -1,0 +1,34 @@
+<div class="modal fade" id="youtube_modal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <button type="button" class="close" aria-label="Close" data-dismiss="modal">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <p>YouTubeのURLを入力して下さい。</p>
+                </div>
+                <div class="panel-body">
+                    <%= form_for(@user, :url => {:controller => "users", :action => "registration_youtube_url" }) do |f| %>
+                        <div id='for_url_input' class='container'>
+                            <%= f.text_field :yt_url, class: "form-control" %>
+                        </div>
+                        <div class='row'>
+                            <%= f.submit "変更", id: "submit_for_yt", class:'btn btn-default' %>
+                    <% end %>
+                    
+                    <% if @user.yt_url == ''||@user.yt_url == nil %>
+                        <%= form_for(@user, :url => {:controller => "users", :action => "destroy_youtube_url" }) do |f| %>
+                            <%= f.submit "削除", id: "delete_for_yt", class:'btn btn-default invalid_icon' %>
+                        <% end %>
+                    <% else %>
+                        <%= form_for(@user, :url => {:controller => "users", :action => "destroy_youtube_url" }) do |f| %>
+                            <%= f.submit "削除", id: "delete_for_yt", class:'btn btn-default', :confirm => '本当にこのページからYouTubeのURLを削除してよろしいですか？' %>
+                        <% end %>
+                    <% end %>
+                        </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

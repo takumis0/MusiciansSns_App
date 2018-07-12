@@ -1,0 +1,16 @@
+<%= javascript_include_tag "load_index.js", "fadeInUsers.js", "list_link.js" %>
+<% provide(:title, 'Searched users') %>
+<h1><%= @title %></h1>
+<div class="container-inner style='margin-top:20px;'">
+  <div class="row">
+    <div class="text-center col-xs-12 col-md-8 col-md-offset-2">
+      <%= render 'shared/autocomp_search_form' %>
+    </div>
+  </div>
+</div>
+<div class="container">
+    <ul class="users list-group", id ='users_index'>
+      <%= render @users %>
+    </ul>
+  <%= render 'more_index' %>
+</div>

@@ -1,0 +1,33 @@
+<div class="modal fade" id="instagram_modal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="panel">
+                <div class="panel-heading panel-purple">
+                    <button type="button" class="close" aria-label="Close" data-dismiss="modal">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <p>instagramのユーザーネームを入力して下さい。</p>
+                </div>
+                <div class="panel-body">
+                    <%= form_for(@user, :url => {:controller => "users", :action => "registration_instagram_id" }) do |f| %>
+                        <div class='container'>
+                            <%= f.text_field :insta_id, class: "form-control" %>
+                        </div>
+                        <div class='row'>
+                            <%= f.submit "変更", id: "submit_for_insta", class:'btn btn-default purple_button' %>
+                    <% end %>
+                    <% if @user.insta_id == ''||@user.insta_id == nil %>
+                        <%= form_for(@user, :url => {:controller => "users", :action => "destroy_instagram_id" }) do |f| %>
+                            <%= f.submit "削除", id: "delete_for_insta", class:'btn btn-default invalid_icon purple_button' %>
+                        <% end %>
+                    <% else %>
+                        <%= form_for(@user, :url => {:controller => "users", :action => "destroy_instagram_id" }) do |f| %>
+                            <%= f.submit "削除", id: "delete_for_insta", class:'btn btn-default purple_button', :confirm => '本当にこのページからinstagramのユーザーネーム情報を削除してよろしいですか？' %>
+                        <% end %>
+                    <% end %>
+                        </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

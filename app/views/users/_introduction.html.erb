@@ -1,0 +1,15 @@
+<div id = 'introduction_jumbo' class = "jumbotron" >
+    <h1><small>Introduction</small></h1>
+    <%= simple_format(@user.introduction, :align=>'left', :class=>'intro_text') %>
+    <% unless @user.video_id == nil || @user.video_id == '' %>
+        <%= make_yt_url(@user.video_id) %>
+    <% end %>
+    <% if @user == current_user %>
+    <button type="button" class="modal_open_button" style='position: relative;' data-toggle="modal" data-target="#introduction_modal">
+        <%= icon('far', 'edit', class: 'strong fa-2x for_linkers') %>
+    </button>
+    <button type="button" class="modal_open_button" style='position: relative;' data-toggle="modal" data-target="#youtube_modal">
+        <%= icon('fab', 'youtube-square', class: 'strong fa-2x for_linkers') %>
+    </button>
+    <% end %>
+</div>

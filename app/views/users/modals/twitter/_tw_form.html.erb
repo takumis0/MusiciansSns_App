@@ -1,0 +1,34 @@
+<div class="modal fade" id="twitter_modal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="panel panel-info">
+                <div class="panel-heading">
+                    <button type="button" class="close" aria-label="Close" data-dismiss="modal">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <p>TwitterのIDを入力して下さい。</p>
+                </div>
+                <div class="panel-body">
+                    <%= form_for(@user, :url => {:controller => "users", :action => "registration_twitter_id" }) do |f| %>
+                        <div class='container'>
+                            <p id='at_sign' style='float: left;'>@</p><%= f.text_field :tw_id, class: "form-control" %>
+                        </div>
+                        <div class='row'>
+                            <%= f.submit "変更", id: "submit_for_tw", class:'btn btn-primary' %>
+                    <% end %>
+                    
+                    <% if @user.tw_id == ''||@user.tw_id == nil %>
+                        <%= form_for(@user, :url => {:controller => "users", :action => "destroy_twitter_id" }) do |f| %>
+                            <%= f.submit "削除", id: "delete_for_tw", class:'btn btn-primary invalid_icon' %>
+                        <% end %>
+                    <% else %>
+                        <%= form_for(@user, :url => {:controller => "users", :action => "destroy_twitter_id" }) do |f| %>
+                            <%= f.submit "削除", id: "delete_for_tw", class:'btn btn-primary', :confirm => '本当にこのページからtwitterID情報を削除してよろしいですか？' %>
+                        <% end %>
+                    <% end %>
+                        </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

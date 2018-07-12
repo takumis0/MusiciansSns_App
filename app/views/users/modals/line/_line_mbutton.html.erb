@@ -1,0 +1,21 @@
+<% if @user.line_id == ''||@user.line_id == nil %>
+  <% if @user == current_user #id無&&本人 %>
+    <button type="button" class="modal_open_button" data-toggle="modal" data-target="#line_modal">
+    <%= icon('fab', 'line', '', id: 'line_icon', class: 'strong fa-4x blankSns_icon for_linkers') %>
+    </button>
+  <% else #id無&&他人 %>
+    <button type="button" class="modal_open_button" data-toggle="modal" data-target="#line_modal">
+    <%= icon('fab', 'line', '', id: 'line_icon', class: 'strong fa-4x invalid_icon') %>
+    </button>
+  <% end %>
+<% else %>
+  <% if @user == current_user #id有&&本人 %>
+    <button type="button" class="modal_open_button" data-toggle="modal" data-target="#line_modal">
+    <%= icon('fab', 'line', '', id: 'line_icon', class: 'strong fa-4x for_linkers') %>
+    </button>
+  <% else #id有&&他人 %>
+  　<button type="button" class="modal_open_button" data-toggle="modal" data-target="#line_info_modal">
+    <%= icon('fab', 'line', '', id: 'line_icon', class: 'strong fa-4x for_linkers') %>
+    </button>
+  <% end %>
+<% end %>

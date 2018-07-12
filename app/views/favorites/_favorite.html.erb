@@ -1,0 +1,17 @@
+<%= content_tag_for(:tr, favorite) do %>
+  <% return if favorite.song == nil && favorite.artist == nil %>
+  <td>
+    <%= icon('fas', 'music', class: 'strong fa-1x') %>：
+    <%= favorite.song %>
+  </td>
+  <td>
+    <%= icon('fas', 'user', class: 'strong fa-1x') %>：
+    <%= favorite.artist %>
+  </td>
+  <td>
+    <% if @user == current_user && favorite.artist != nil %>
+    <%= link_to "", favorite, method: :delete, data: { confirm: "本当に削除してもよろしいですか" },
+                class: "favorite_delete", remote: true %>
+    <% end %>
+  </td>
+<% end %>

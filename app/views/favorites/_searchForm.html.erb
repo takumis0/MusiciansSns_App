@@ -1,0 +1,18 @@
+<div class="container-inner center-block">
+    <h3 style='text-align: center;'><%= icon('far', 'heart', class: 'strong fa-2x') %></h3>
+    <div class="col-md-10 col-md-offset-1">
+        <div class="form-group" style='width: 31%;'>
+            <select class="form-control" id="inc_select" name="search_value">
+                <option value=""></option>
+                <option value="songTerm">曲名</option>
+                <option value="artistTerm">アーティスト</option>
+            </select>
+        </div>
+        <div class="form-group" style="width:65%;">
+            <input class="form-control" id="inc_search" type="text">
+        </div>
+    </div>
+    <div class="col-xs-12" style="height: auto;">
+        <%= render partial: 'favorites/searched' %>
+    </div>
+</div>

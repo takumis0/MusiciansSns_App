@@ -1,0 +1,33 @@
+<div class="modal fade" id="line_modal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="panel panel-success">
+                <div class="panel-heading">
+                    <button type="button" class="close" aria-label="Close" data-dismiss="modal">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <p>LINEのIDを入力して下さい。</p>
+                </div>
+                <div class="panel-body">
+                    <%= form_for(@user, :url => {:controller => "users", :action => "registration_line_id" }) do |f| %>
+                        <div class='container'>
+                            <%= f.text_field :line_id, class: "form-control" %>
+                        </div>
+                        <div class='row'>
+                            <%= f.submit "変更", id: "submit_for_line", class:'btn btn-success' %>
+                    <% end %>
+                    <% if @user.line_id == ''||@user.line_id == nil %>
+                        <%= form_for(@user, :url => {:controller => "users", :action => "destroy_line_id" }) do |f| %>
+                            <%= f.submit "削除", id: "delete_for_line", class:'btn btn-success invalid_icon' %>
+                        <% end %>
+                    <% else %>
+                        <%= form_for(@user, :url => {:controller => "users", :action => "destroy_line_id" }) do |f| %>
+                            <%= f.submit "削除", id: "delete_for_line", class:'btn btn-success', :confirm => '本当にこのページからLINEのID情報を削除してよろしいですか？' %>
+                        <% end %>
+                    <% end %>
+                        </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

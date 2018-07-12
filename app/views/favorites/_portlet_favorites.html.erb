@@ -1,0 +1,25 @@
+<div class='container' id='favorites_contents'>
+  <div class='row'>
+    <div class="col-md-6">
+      <% if @user.favorites.any? %>
+        <h3 style='text-align: center;'><%= icon('far', 'save', '', class: 'strong fa-2x') %></h3>
+        <table class="table table-hover" id="my_favorites">
+          <% if @favorites.count == 0 && @user == current_user %>
+            <%= render 'favorites/first_favorite' %>
+          <% else %>
+            <%= render @favorites %>
+          <% end %>
+        </table>
+      <% end %>
+    </div>
+    <% if @user == current_user %>
+      <div class="col-md-6" id='registration_favorites_container'>
+        <%= render 'favorites/searchForm' %>
+      </div>
+      <%= render 'favorites/favorite_form' %>
+  </div>
+  <div class="col-md-8 col-md-offset-2">
+    <%= render 'favorites/manage_favorites' %>
+  </div>
+    <% end %>
+</div>

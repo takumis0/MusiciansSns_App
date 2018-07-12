@@ -1,0 +1,13 @@
+<%= form_tag users_path, :method => 'get', :id=>"form-group-custom" do %>
+  <div class='row'>
+    <div class="form-group">
+      <%= select_tag 'user_search_option', options_for_select({"タイトル" => "songTerm", "アーティスト" => "artistTerm"}),
+          :include_blank => true, :class=>"form-control" %>
+    </div>
+    <div class="form-group" style="width:80%; height:50px">
+      <%= text_field_tag :search, params[:search], :placeholder=>'アーティスト名か、曲名を入力して下さい',
+          :id=>'user_name_field', :class=>'form-control token-input' %>
+    </div>
+  </div>
+  
+<% end %>

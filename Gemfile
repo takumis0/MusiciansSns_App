@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
-ruby '2.0.0'
+ruby '2.3.7'
 
-gem 'rails', '4.0.5'
+gem 'rails', '4.0.6'
 gem 'bootstrap-sass', '3.3.4.1'
 gem 'sprockets', '2.11.0'
 gem 'devise', '3.4.1'
@@ -16,9 +16,9 @@ gem 'jquery-turbolinks'
 gem 'arel'
 gem 'font-awesome-sass'
 
-group :development do
-  gem 'sqlite3', '1.3.9'
-end
+gem 'sqlite3', group: :development
+# 本番ではpostgressを使用する
+gem 'pg', group: :production
 
 gem 'sass-rails', '4.0.3'
 gem 'uglifier', '2.5.3'

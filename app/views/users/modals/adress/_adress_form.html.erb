@@ -1,0 +1,33 @@
+<div class="modal fade" id="adress_modal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="panel panel-warning">
+                <div class="panel-heading">
+                    <button type="button" class="close" aria-label="Close" data-dismiss="modal">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <p>メールアドレスを入力して下さい。</p>
+                </div>
+                <div class="panel-body">
+                    <%= form_for(@user, :url => {:controller => "users", :action => "registration_adress_id" }) do |f| %>
+                        <div class='container'>
+                            <%= f.text_field :contact_adress, class: "form-control" %>
+                        </div>
+                        <div class='row'>
+                            <%= f.submit "変更", id: "submit_for_adress", class:'btn btn-warning' %>
+                    <% end %>
+                    <% if @user.contact_adress == ''||@user.contact_adress == nil %>
+                        <%= form_for(@user, :url => {:controller => "users", :action => "destroy_adress_id" }) do |f| %>
+                            <%= f.submit "削除", id: "delete_for_adress", class:'btn btn-warning invalid_icon' %>
+                        <% end %>
+                    <% else %>
+                        <%= form_for(@user, :url => {:controller => "users", :action => "destroy_adress_id" }) do |f| %>
+                            <%= f.submit "削除", id: "delete_for_adress", class:'btn btn-warning', :confirm => '本当にこのページからメールアドレスを削除してよろしいですか？' %>
+                        <% end %>
+                    <% end %>
+                        </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

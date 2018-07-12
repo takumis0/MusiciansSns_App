@@ -1,0 +1,24 @@
+<div id="introduction_modal" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <button type="button" class="close" aria-label="Close" data-dismiss="modal">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <p>自己紹介文を書いて下さい。</p>
+                </div>
+                <div class="panel-body">
+                    <%= form_for(@user, :url => {:controller => "users", :action => "edit_introduction" }) do |f| %>
+                        <div id='intro_form_container', class='container'>
+                            <%= f.text_area :introduction, autocomplete: "off", class: "form-control", :rows=>"20" %>
+                        </div>
+                        <div class='center-block' style='display: table; margin-top: 10px;'>
+                            <%= f.submit "変更", id: "submit_for_intro", class:'btn btn-default' %>
+                        </div>
+                    <% end %>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
